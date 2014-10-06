@@ -1,0 +1,15 @@
+{
+    "name": "murrion/mandrill-with-mailchimp-templates",
+    "description": "This is a basic working example of how to begin sending emails using Mandrill using a Template created in MailChimp.",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Gordon Murray",
+            "email": "projects@murrion.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "v1.2.2",
+        "mandrill/mandrill": "1.0.53"
+    }
+}
