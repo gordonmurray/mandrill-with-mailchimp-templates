@@ -21,8 +21,8 @@ $app->get('/', function () use ($app, $mandrill) {
  */
 $app->get('/send_normal', function () use ($app, $mandrill) {
 
-    $recipient_email_address = 'ADD_RECIPIENT_EMAIL_ADDRESS';
-    $recipient_name = 'ADD_RECIPIENT_NAME';
+    $recipient_email_address = 'ADD_RECIPIENT_EMAIL_ADDRESS'; // change this to the recipient email address
+    $recipient_name = 'ADD_RECIPIENT_NAME'; // change this to the recipient name
 
     $message = array(
         'html' => '<p>Example HTML content</p>',
@@ -81,9 +81,9 @@ $app->get('/send_normal', function () use ($app, $mandrill) {
  */
 $app->get('/send_template', function () use ($app, $mandrill) {
 
-    $recipient_email_address = 'ADD_RECIPIENT_EMAIL_ADDRESS';
-    $recipient_name = 'ADD_RECIPIENT_NAME';
-    $template_name = 'murrion test 1';
+    $recipient_email_address = 'ADD_RECIPIENT_EMAIL_ADDRESS'; // change this to the recipient email address
+    $recipient_name = 'ADD_RECIPIENT_NAME'; // change this to the recipient name
+    $template_name = 'murrion test 1'; // change this to the template name to use
 
     $template_content = array(
         array(

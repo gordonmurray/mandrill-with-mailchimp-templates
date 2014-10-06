@@ -3,7 +3,7 @@ Using Mandrill with MailChimp Templates
 
 This is a basic working example of how to begin sending emails using Mandrill, to send normal emails or using a Template created in MailChimp.
 
-First steps (for the owner of the to perform first)
+First steps (for the account owner to perform first)
 --------------------------------------------
 
 1. A MailChimp account needs to be set up by the owner at http://mailchimp.com/.
