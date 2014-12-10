@@ -36,13 +36,13 @@ Editing templates
 1. Templates can be edited directly from mailchimp.com interfance.
 2. Dynamic elements are marked with the format mc:edit="name_of_marker". E.g. <div class="calendar-month" mc:edit="event_date_month">
 3. Mailchimp is very exigent with the structure of the markers and will automatically delete anything with invalid format. Pay special care to nested elements, totally forbidden. e.g. 
-<pre>
+```
        <table mc:edit="table_element">
        <tr>
        <td mc:edit="column_element">
        </tr>
        </table>
-</pre>
+```
 In this example, Mailchimp will automatically delete the column_element after saving the template.
 4. After saving the template we still need to click on 'Send to Mandrill', otherwise last changes are not usable yet.
 
