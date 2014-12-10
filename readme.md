@@ -30,9 +30,26 @@ Steps for sending normal and template emails (for a developer)
 5. [in place in the examples] When sending an email, the variables such as *|HEADING|* can be changed in the template.
 6. [in place in the examples] When sending an email, the variables such as *|FNAME|* can be changed per person based on email address.
 
+Editing templates
+---------
+
+1. Templates can be edited directly from mailchimp.com interfance.
+2. Dynamic elements are marked with the format mc:edit="name_of_marker". E.g. <div class="calendar-month" mc:edit="event_date_month">
+3. Mailchimp is very exigent with the structure of the markers and will automatically delete anything with invalid format. Pay special care to nested elements, totally forbidden. e.g. 
+       <table mc:edit="table_element">
+       <tr>
+       <td mc:edit="column_element">
+       </tr>
+       </table>
+In this example, Mailchimp will automatically delete the column_element after saving the template.
+4. After saving the template we still need to click on 'Send to Mandrill', otherwise last changes are not usable yet.
+
 Problems?
 ---------
 
 * If you get the following error : ***"SSL certificate problem: unable to get local issuer certificate"*** then add the following to around Line 105 of /vendor/mandrill/src/Mandrill.php:
 * curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+
+* If you get a message 'unknown_template' probably the reason is because the template exists in Mailchimp but it wasn't sent to Mandrill yet. You can fix it going to the template list, selecting it and clicking on 'Send to Mandrill'. It takes a few seconds until you get a confirmation message.
+
 
