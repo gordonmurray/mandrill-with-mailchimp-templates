@@ -29,6 +29,18 @@ Steps for sending normal and template emails (for a developer)
 4. [update template name in examples] Code examples for sending a normal email (without a template) and also a template-based email are in index.php
 5. [in place in the examples] When sending an email, the variables such as *|HEADING|* can be changed in the template.
 6. [in place in the examples] When sending an email, the variables such as *|FNAME|* can be changed per person based on email address.
+7. When sending variables in a template, we need to send them in pairs name + value. e.g:
+```
+$template_content = array(
+    array(
+        'name' => 'customer_name',
+        'content' => 'Henry Kissinger'
+    ),
+    array(
+        'name' => 'customer_address',
+        'content' => 'Maryborough Houses<br>Douglas, Cork'
+    ));
+```
 
 Editing templates
 ---------
@@ -45,6 +57,7 @@ Editing templates
 ```
 In this example, Mailchimp will automatically delete the column_element after saving the template.
 4. After saving the template we still need to click on 'Send to Mandrill', otherwise last changes are not usable yet.
+5. Including CSS in the header will be problematic when dealing with webmail systems like Gmail: http://kb.mailchimp.com/campaigns/previews-and-tests/css-stripped-from-campaign The css must be inline in other to look good always.
 
 Problems?
 ---------
@@ -53,5 +66,9 @@ Problems?
 * curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
 
 * If you get a message 'unknown_template' probably the reason is because the template exists in Mailchimp but it wasn't sent to Mandrill yet. You can fix it going to the template list, selecting it and clicking on 'Send to Mandrill'. It takes a few seconds until you get a confirmation message.
+* If your template seems to be missing always, try to get a list of available templates using:
+```
+$result = $mandrill->templates->getList();
+```
 
 
